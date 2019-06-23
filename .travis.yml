@@ -1,0 +1,9 @@
+sudo: required
+services:
+        - docker
+
+before_install:
+        - docker build -t yvoncch/docker-react -f Dockerfile.dev .
+
+script:
+        - docker run yvoncch/docker-react npm run test -- --coverage
